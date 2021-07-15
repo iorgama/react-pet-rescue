@@ -1,6 +1,5 @@
-import React, { useRef, useState } from "react";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { SwiperContainer, SwiperSlideItem, ImgSlide } from './style'
+import { SwiperSlide } from "swiper/react";
+import { SwiperContainer, ImgSlide } from './style'
 import slide01 from '../../assets/images/slide01.jpg'
 import slide02 from '../../assets/images/slide02.jpg'
 import slide03 from '../../assets/images/slide03.jpg'

@@ -1,4 +1,4 @@
-import React, {FC, InputHTMLAttributes, useState} from 'react'
+import React, {FC, InputHTMLAttributes} from 'react'
 import { InputForm, LabelForm, Wrapper} from './style'
 
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {

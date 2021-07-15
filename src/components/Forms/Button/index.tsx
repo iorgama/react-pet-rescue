@@ -1,4 +1,4 @@
-import React from 'react';
+import React  from 'react';
 import { FC, ButtonHTMLAttributes } from 'react';
 import {ButtonForm} from './style';
 
@@ -11,8 +11,18 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement>{
   colorHover ?: string
   marginLeft ?: string
   marginTop ?: string
+  value ?: string
+  onClick?:
+  | ((event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void)
+  | undefined;
 }
-export const Button : FC<ButtonProps> = ({ title, color, fontColor, border, padding, marginTop,colorHover,marginLeft }) => {
+export const Button : FC<ButtonProps> = ({ value, title, color, fontColor, border, padding, marginTop,colorHover,marginLeft, onClick = () => {} }) => {
+
+  console.log(value);
+  const handleOnClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+    onClick(e);
+  }
+
   return <ButtonForm 
           border = {border}
           padding= {padding}
@@ -20,7 +30,8 @@ export const Button : FC<ButtonProps> = ({ title, color, fontColor, border, padd
           fontColor= {fontColor}
           colorHover={colorHover}
           marginLeft={marginLeft}
-          marginTop={marginTop}>
+          marginTop={marginTop}
+          onClick={handleOnClick}>
         {title}
     </ButtonForm>;
 };

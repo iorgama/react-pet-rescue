@@ -3,7 +3,7 @@ import api from '../Api/index'
 const createPet = async(data: object) => {
   try {
     const response = await api.post('/pet', {...data});
-    if(response.status == 201){
+    if(response.status === 201){
       return true;
     }
     return false;

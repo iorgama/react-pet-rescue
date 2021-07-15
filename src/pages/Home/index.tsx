@@ -6,10 +6,12 @@ import { SearchSection, CardSection, CardItemSection, Form } from './style'
 import { useTheme } from 'styled-components';
 import {getAllPets, searchPet} from '../../services/PetApi/pet-api'
 import { Title } from '../../components/Text/Title';
+import { Error } from '../../components/Error';
 
 export const Home = () => { 
   const [name, setName] = useState("");
   const [pets, setPets] = useState([]);
+  const [loading, setLoading] = useState(true);
   const showButton=true;
   
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
@@ -21,6 +23,7 @@ export const Home = () => {
       const result = await getAllPets();
       setPets(result);
     }
+    setLoading(false);
   };
 
   const Theme = useTheme();
@@ -50,12 +53,15 @@ export const Home = () => {
           <Title text="Pets" marginTop="40px" color={Theme.palette.tertiary}  fontSize="28px"/>
           <CardItemSection>
             {pets.map(({ id, name, image, type, size, age, location}) => (
-              <CardItem key={id} {...{ name, image, type, size, age, location}} showbutton={showButton} />
+              <CardItem key={id} {...{ id, name, image, type, size, age, location}} showbutton={showButton} />
             ))}
           </CardItemSection>         
         </CardSection> 
-        : null
-      }
+        : null }
+      
+      {pets.length === 0 && loading === false && <Error message="Que pena! Não encontramos o bichinho que você procurou." />}
+
+      
     </>
   )
 }

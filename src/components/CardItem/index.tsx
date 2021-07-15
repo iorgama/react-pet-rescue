@@ -1,4 +1,4 @@
-import React from 'react'
+import { MouseEvent } from 'react'
 import { FC } from 'react';
 import { Title } from '../Text/Title';
 import { useTheme } from 'styled-components';
@@ -7,6 +7,7 @@ import { Subtitle } from '../Text/Subtitle';
 import { Button } from '../Forms/Button';
 
 interface CardItemProps {
+  id ?: string
   name : string
   image ?: string
   type ?: string
@@ -16,8 +17,16 @@ interface CardItemProps {
   location ?: string
   showbutton ?: boolean
 }
-export const CardItem : FC<CardItemProps> = ({ name, image, type, size, age, gender, location, showbutton }) => {
+
+export const CardItem : FC<CardItemProps> = ({ id, name, image, type, size, age, gender, location, showbutton }) => {
   const Theme = useTheme();
+
+  const handleOnClick = (event: MouseEvent<HTMLButtonElement>) => {
+    console.log(event)
+    console.log('asd');
+  };
+  
+
   return (
     <>
       <Card>
@@ -32,7 +41,8 @@ export const CardItem : FC<CardItemProps> = ({ name, image, type, size, age, gen
           {location && <Subtitle message={"Localização: " + location} color={Theme.palette.tertiary}/>}
           {gender && <Subtitle message={"Gênero: " + gender} color={Theme.palette.tertiary}/>}
           {showbutton ? 
-            <Button title="Saber mais detalhes" marginTop="0.5" color={Theme.palette.secondary} padding="8px" fontColor={Theme.palette.tertiary} colorHover={Theme.palette.light}/>
+          
+          <Button onClick={(e) => handleOnClick(e)}  title="Saber mais detalhes" marginTop="0.5" color={Theme.palette.secondary} padding="8px" fontColor={Theme.palette.tertiary} colorHover={Theme.palette.light}/>
           : null}
         </CardItens>
       </Card>

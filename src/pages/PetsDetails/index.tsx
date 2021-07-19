@@ -7,10 +7,10 @@ import {ListSection} from './style'
 import { useTheme } from 'styled-components';
 import { Error } from '../../components/Error';
 
-export const ListPets = () => {  
+export const PetsDetails = () => {  
   const [pets, setPets] = useState([]);
   const showButton = false;
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
     (async () => {

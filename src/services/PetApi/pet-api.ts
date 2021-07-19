@@ -13,9 +13,19 @@ const createPet = async(data: object) => {
   }
 }
 
+const getPet = async(id: string) => {
+  try {
+    const response = await api.get(`/pet/${id}`);
+    return response.data;
+  } catch (e) {
+    console.log('error while fetching pets: ', e);
+    throw e;
+  }
+}
+
 const getAllPets = async () => {
   try {
-    const response = await api.get('/pet?sortBy=id&order=desc');
+    const response = await api.get('/pet?sortBy=id&order=asc');
     return response.data;
   } catch (e) {
     console.log('error while fetching pets: ', e);
@@ -37,8 +47,21 @@ const searchPet = async (name: string) => {
   }
 }
 
+const deletePet = async(petId: string) => {
+  console.log(petId)
+  try {
+    const response = await api.delete(`/pet/${petId}`);
+    return response.data;
+  } catch (e) {
+    console.log('error while fetching pets: ', e);
+    throw e;
+  }
+}
+
 export {
   getAllPets,
+  getPet,
   searchPet,
-  createPet
+  createPet,
+  deletePet
 }

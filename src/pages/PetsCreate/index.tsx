@@ -7,16 +7,16 @@ import { Input } from '../../components/Forms/Input';
 import { Button } from '../../components/Forms/Button';
 import { createPet } from '../../services/PetApi/pet-api';
 
-export const CreatePets = () => {
-  const [name, setName] = useState("")
-  const [weight, setWeight] = useState("")
-  const [gender, setGender] = useState("")
-  const [type, setType] = useState("")
-  const [age, setAge] = useState("")
-  const [size, setSize] = useState("")
-  const [image, setImage] = useState("")
-  const [location, setLocation] = useState("")
-  const [info, setInfo] = useState("")
+export const PetsCreate = () => {
+  const [name, setName] = useState<string>("")
+  const [weight, setWeight] = useState<string>("")
+  const [gender, setGender] = useState<string>("")
+  const [type, setType] = useState<string>("")
+  const [age, setAge] = useState<string>("")
+  const [size, setSize] = useState<string>("")
+  const [image, setImage] = useState<string>("")
+  const [location, setLocation] = useState<string>("")
+  const [info, setInfo] = useState<string>("")
   const Theme = useTheme();
   const showBoxShadow = true;
   const showMarginForLabel = true;
@@ -38,7 +38,7 @@ export const CreatePets = () => {
     
     const result = await createPet(data);
     if(result){
-      history.push('/lista-pets');
+      history.push('/pets');
     }
     
   }

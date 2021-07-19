@@ -31,3 +31,9 @@ export const Image = styled.img`
   height: 100%;
 `
 
+export const NameCard = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+`

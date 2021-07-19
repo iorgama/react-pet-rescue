@@ -1,6 +1,6 @@
-import React  from 'react';
 import { FC, ButtonHTMLAttributes } from 'react';
 import {ButtonForm} from './style';
+import {FaTrash} from 'react-icons/fa';
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement>{
   title ?: string
@@ -12,17 +12,10 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement>{
   marginLeft ?: string
   marginTop ?: string
   value ?: string
-  onClick?:
-  | ((event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void)
-  | undefined;
+  onClick ?: () => void
+  deleteIcon ?: boolean
 }
-export const Button : FC<ButtonProps> = ({ value, title, color, fontColor, border, padding, marginTop,colorHover,marginLeft, onClick = () => {} }) => {
-
-  console.log(value);
-  const handleOnClick = (e: React.MouseEvent<HTMLButtonElement>) => {
-    onClick(e);
-  }
-
+export const Button : FC<ButtonProps> = ({ value, title, color, fontColor, border, padding, marginTop, colorHover, marginLeft, onClick, deleteIcon }) => {
   return <ButtonForm 
           border = {border}
           padding= {padding}
@@ -31,7 +24,8 @@ export const Button : FC<ButtonProps> = ({ value, title, color, fontColor, borde
           colorHover={colorHover}
           marginLeft={marginLeft}
           marginTop={marginTop}
-          onClick={handleOnClick}>
+          onClick={onClick}>
         {title}
+        {deleteIcon && <FaTrash />}
     </ButtonForm>;
 };

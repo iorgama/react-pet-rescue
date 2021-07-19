@@ -9,7 +9,7 @@ import { Title } from '../../components/Text/Title';
 import { Error } from '../../components/Error';
 
 export const Home = () => { 
-  const [name, setName] = useState("");
+  const [name, setName] = useState<string>("");
   const [pets, setPets] = useState([]);
   const [loading, setLoading] = useState(true);
   const showButton=true;

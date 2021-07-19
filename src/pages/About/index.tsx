@@ -4,7 +4,7 @@ import {Slide} from '../../components/Slide'
 import { Subtitle } from '../../components/Text/Subtitle'
 import { Title } from '../../components/Text/Title'
 import { SlideSection, AboutSection, TitleAboutSection, MessageAboutSection, SubtitleAboutSection, IconAboutSection, MdPetsIcon} from './style'
-import {message} from '../../data/Data';
+import {message} from '../../mock/Text';
 
 export const About = () => {
   const Theme = useTheme();

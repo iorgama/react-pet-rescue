@@ -48,7 +48,6 @@ const searchPet = async (name: string) => {
 }
 
 const deletePet = async(petId: string) => {
-  console.log(petId)
   try {
     const response = await api.delete(`/pet/${petId}`);
     return response.data;

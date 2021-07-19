@@ -9,7 +9,7 @@ import { Error } from '../../components/Error';
 
 export const PetsDetails = () => {  
   const [pets, setPets] = useState([]);
-  const showButton = false;
+  const showButton = true;
   const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
@@ -27,7 +27,7 @@ export const PetsDetails = () => {
         <Title text="Pets Disponíveis" marginTop="40px" color={Theme.palette.tertiary}  fontSize="28px"/>
         <CardItemSection>
           {pets.map(({ id, name, image, type, size, age}) => (
-            <CardItem key={id} {...{ name, image, type, size, age}} showbutton={showButton} />
+            <CardItem key={id} {...{ id, name, image, type, size, age}} showbutton={showButton} />
           ))}
         </CardItemSection>
       </CardSection>

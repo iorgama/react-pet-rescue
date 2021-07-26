@@ -1,4 +1,4 @@
-## Desscrição do projeto:
+## Descrição do projeto:
 A ideia do projeto foi desenvolver um app para exibir pets disponíveis para adoção. Na versão inicial do app é possível realizar o cadastro e exclusão do Pet, além de listar aqueles que estão disponíveis para serem adotados.
 
 ## Bibliotecas e tecnologias utilizadas:

@@ -5,6 +5,8 @@ A ideia do projeto foi desenvolver um app para exibir pets disponíveis para ado
 * Styled components
 * Swiper
 * React Router Dom
+* Axios
+* React Icon
 * React Js
 * Typescript
 
